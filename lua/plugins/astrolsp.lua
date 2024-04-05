@@ -5,6 +5,7 @@ return {
   opts = {
     ---@diagnostic disable: missing-fields
     config = {
+      -- python --
       pyright = {
         before_init = function(_, c)
           local pythonPath = vim.g.python3_host_prog
@@ -15,6 +16,23 @@ return {
           if not c.settings.python then c.settings.python = {} end
           c.settings.python.pythonPath = pythonPath
         end,
+      },
+      -- rust --
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+           cargo = {
+              extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev', },
+              extraArgs = { "--profile", "rust-analyzer", },
+            },
+            -- Add clippy lints for Rust
+            checkOnSave = {
+              allFeatures = true,
+              command = "clippy",
+              extraArgs = { "--no-deps" },
+            },
+          },
+        },
       },
     },
   },
