@@ -22,8 +22,8 @@ return {
       },
       i = { -- insert mode
         -- im: ^V + key -> shortkey
-        ["<C-S>"] = { "<Esc><Cmd>w<CR>" },
-        ["<C-Q>"] = { "<Esc><C-Q>" },
+        ["<C-s>"] = { "<Esc><Cmd>w<CR>" },
+        ["<C-q>"] = { "<Esc><C-Q>" },
       },
       n = { -- normal mode
         ["x"] = { '"_x' },
@@ -33,11 +33,12 @@ return {
         ["\\d"] = { '"_d', desc = "Alt" },
         ["\\dd"] = { '"_dd', desc = "Alt" },
         -- shortkeys --
+        -- ~/.local/share/nvim/lazy/AstroNvim/lua/astronvim/plugins/_astrocore_mappings.lua
         ["<M-s>"] = { "<cmd>w!<cr>", desc = "Force write" },
         ["<M-q>"] = { "<cmd>qa!<cr>", desc = "Force quit" },
-        ["<C-S>"] = { "<Cmd>w<CR>", desc = "Save" },
-        ["<C-Q>"] = { function() local bufs_cnt = #vim.t.bufs; require("astrocore.buffer").close();
-            if bufs_cnt == 1 and #vim.t.bufs == 1 then vim.cmd("conf q") end end, desc = "Smart close buffer" },
+        ["<C-s>"] = { "<Cmd>w<CR>", desc = "Save" },
+        ["<C-q>"] = { function() local _bufs = #vim.t.bufs; require("astrocore.buffer").close();
+            if _bufs == 1 and #vim.t.bufs == 1 then vim.cmd("conf q") end end, desc = "Smart close buffer" },
         ["<C-\\>"] = { function() require('smart-splits').move_cursor_previous() end, desc = "Move to previous split" },
         -- :bf[irst] :bl[ast] :[#]bn[ext] :[#]bp[rev] :ls[buffers] :b # - alternate C-^ :lua =#vim.t.bufs
         ["<M-j>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Prev buffer [b :bp" },
