@@ -2,3 +2,6 @@
 # Mac-OS
 .DS_Store
 __MACOSX/
+
+# AstroNvim
+/lazy-lock.json
