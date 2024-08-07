@@ -34,10 +34,10 @@ return {
         ["\\dd"] = { '"_dd', desc = "Alt" },
         -- shortkeys --
         -- ~/.local/share/nvim/lazy/AstroNvim/lua/astronvim/plugins/_astrocore_mappings.lua
+        ["<C-s>"] = { "<Cmd>w<CR>", desc = "Write" },
         ["<M-s>"] = { "<cmd>w!<cr>", desc = "Force write" },
+        ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
         ["<M-q>"] = { "<cmd>qa!<cr>", desc = "Force quit" },
-        ["<C-s>"] = { "<Cmd>w<CR>", desc = "Save" },
-        ["<C-q>"] = { "<Leader>c" },
         -- ["<C-q>"] = { function() local _bufs = #vim.t.bufs; require("astrocore.buffer").close();
         --     if _bufs == 1 and #vim.t.bufs == 1 then vim.cmd("conf q") end end, desc = "Smart close buffer" },
         ["<C-\\>"] = { function() require('smart-splits').move_cursor_previous() end, desc = "Move to previous split" },
