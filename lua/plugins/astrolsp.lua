@@ -5,8 +5,8 @@ return {
   opts = {
     ---@diagnostic disable: missing-fields
     config = {
-      -- python --
-      pyright = {
+      -- python (pyright --> basedpyright)
+      basedpyright = {
         before_init = function(_, c)
           local pythonPath = vim.g.python3_host_prog
           -- if virtual environment detected
