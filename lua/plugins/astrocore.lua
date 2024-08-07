@@ -22,7 +22,7 @@ return {
       },
       i = { -- insert mode
         -- im: ^V + key -> shortkey
-        ["<C-s>"] = { "<Esc><Cmd>w<CR>" },
+        ["<C-s>"] = { "<Esc><C-s>" },
         ["<C-q>"] = { "<Esc><C-q>" },
       },
       n = { -- normal mode
@@ -37,7 +37,7 @@ return {
         ["<M-s>"] = { "<cmd>w!<cr>", desc = "Force write" },
         ["<M-q>"] = { "<cmd>qa!<cr>", desc = "Force quit" },
         ["<C-s>"] = { "<Cmd>w<CR>", desc = "Save" },
-        ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
+        ["<C-q>"] = { "<Leader>c" },
         -- ["<C-q>"] = { function() local _bufs = #vim.t.bufs; require("astrocore.buffer").close();
         --     if _bufs == 1 and #vim.t.bufs == 1 then vim.cmd("conf q") end end, desc = "Smart close buffer" },
         ["<C-\\>"] = { function() require('smart-splits').move_cursor_previous() end, desc = "Move to previous split" },
